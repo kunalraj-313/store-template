@@ -1,0 +1,33 @@
+.storepage-container {
+    height: 100vh;
+    display: flex;
+    gap: 50px;
+    width: 70%;
+    margin: 0 auto;
+}
+ .product-categories{
+    display: flex;
+    flex-direction: column;
+    gap:'10px';
+    border: 1px solid white;
+ }
+
+ .category-text{
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    font-style: italic;
+    letter-spacing: 1px;
+ }
+
+
+ .products-grid {
+   border: 1px solid white;
+
+   display: grid;
+   grid-template-columns: repeat(3, 1fr); 
+  /* grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); */
+  gap: 20px; /* Space between products */
+  margin-top: 20px;
+ }
+

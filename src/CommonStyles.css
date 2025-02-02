@@ -1,0 +1,211 @@
+/* Flexbox Utility Classes */
+
+/* .flex - Set display to flex and default to row direction */
+.flex {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  /* .column - Set flex-direction to column */
+  .column {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* .align-center - Align items to the center of the flex container */
+  .align-center {
+    align-items: center;
+  }
+  
+  /* .justify-center - Justify content to the center of the flex container */
+  .justify-center {
+    justify-content: center;
+  }
+  
+  /* .space-between - Distribute space between items evenly */
+  .space-between {
+    justify-content: space-between;
+  }
+  
+  /* .space-around - Distribute space around items evenly */
+  .space-around {
+    justify-content: space-around;
+  }
+  
+  /* .space-evenly - Distribute space evenly between and around items */
+  .space-evenly {
+    justify-content: space-evenly;
+  }
+  
+  /* .items-center - Align items to the center of the container along the cross axis */
+  .items-center {
+    align-items: center;
+  }
+  
+  /* .items-start - Align items to the start of the container along the cross axis */
+  .items-start {
+    align-items: flex-start;
+  }
+  
+  /* .items-end - Align items to the end of the container along the cross axis */
+  .items-end {
+    align-items: flex-end;
+  }
+  
+  /* .self-center - Align a single item to the center along the cross axis */
+  .self-center {
+    align-self: center;
+  }
+  
+  /* .self-start - Align a single item to the start along the cross axis */
+  .self-start {
+    align-self: flex-start;
+  }
+  
+  /* .self-end - Align a single item to the end along the cross axis */
+  .self-end {
+    align-self: flex-end;
+  }
+  
+  /* .wrap - Allow items to wrap within a flex container */
+  .wrap {
+    flex-wrap: wrap;
+  }
+  
+  /* .no-wrap - Prevent items from wrapping */
+  .no-wrap {
+    flex-wrap: nowrap;
+  }
+  
+  /* .full-width - Set the width to 100% */
+  .full-width {
+    width: 100%;
+  }
+  
+  /* .full-height - Set the height to 100% */
+  .full-height {
+    height: 100%;
+  }
+  
+  /* .min-height - Set a minimum height */
+  .min-height {
+    min-height: 100px; /* You can adjust this value */
+  }
+  
+  /* .max-width - Set a maximum width */
+  .max-width {
+    max-width: 100%;
+  }
+  
+  /* --- Responsive Design --- */
+  
+  /* Small screens (default) - Mobile-first approach */
+  
+  /* Mobile: Flex in Column */
+  @media (max-width: 767px) {
+    .flex {
+      flex-direction: column; /* Stack flex items vertically on small screens */
+    }
+  
+    /* Example: Align center on mobile for all */
+    .align-center {
+      align-items: center;
+    }
+  
+    .justify-center {
+      justify-content: center;
+    }
+  
+    /* Set items to take full width in mobile view */
+    .full-width {
+      width: 100%;
+    }
+  
+    .min-height {
+      min-height: 120px;
+    }
+  }
+  
+  /* Medium screens (tablets) */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .flex {
+      flex-direction: row; /* Default to row layout for medium screens */
+    }
+  
+    /* Example: Add margin to the top of elements in medium screens */
+    .space-around {
+      margin-top: 20px;
+    }
+  
+    /* Allow a bit of wrap for items on medium screens */
+    .wrap {
+      flex-wrap: wrap;
+    }
+  
+    /* Make elements take 50% width on medium screens */
+    .half-width {
+      width: 50%;
+    }
+  
+    .full-width {
+      width: 100%;
+    }
+  }
+  
+  /* Large screens (desktops) */
+  @media (min-width: 1025px) {
+    /* Flexbox remains in row direction for larger screens */
+    .flex {
+      flex-direction: row;
+    }
+  
+    .column {
+      flex-direction: column; /* Optional column on larger screens if needed */
+    }
+  
+    .align-center {
+      align-items: center;
+    }
+  
+    /* You can make elements have a max-width on large screens */
+    .max-width {
+      max-width: 900px;
+    }
+  
+    /* For very large screens, adjust widths further */
+    .full-width {
+      width: 100%;
+    }
+  
+    .half-width {
+      width: 50%;
+    }
+  
+    .third-width {
+      width: 33.33%;
+    }
+  }
+  
+  /* Extra Large Screens (large desktops, TVs) */
+  @media (min-width: 1600px) {
+    .flex {
+      flex-direction: row;
+    }
+  
+    .full-width {
+      width: 100%;
+    }
+  
+    .half-width {
+      width: 50%;
+    }
+  
+    .third-width {
+      width: 33.33%;
+    }
+  
+    .quarter-width {
+      width: 25%;
+    }
+  }
+  

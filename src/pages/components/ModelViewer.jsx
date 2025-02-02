@@ -1,49 +1,20 @@
-import { useRef, Suspense } from 'react';
-import { Canvas, useFrame, useLoader } from '@react-three/fiber';
-import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader';
-import { MTLLoader } from 'three/examples/jsm/loaders/MTLLoader';
-import PropTypes from 'prop-types';
-import './styles/ModelViewer.css';
+import {Suspense} from 'react'
+import { Canvas } from '@react-three/fiber'
+import { OrbitControls } from '@react-three/drei'
+import Earth from '../../../public/models/Earth'
 
-function Model({ modelPath, materialPath }) {
-  const materials = useLoader(MTLLoader, materialPath);
-  const obj = useLoader(OBJLoader, modelPath, (loader) => {
-    materials.preload();
-    loader.setMaterials(materials);
-  });
-  const modelRef = useRef();
-
-  useFrame(() => {
-    if (modelRef.current) {
-      modelRef.current.rotation.y += 0.01;
-    }
-  });
-
-  return <primitive ref={modelRef} object={obj} scale={0.02} />;
-}
-
-Model.propTypes = {
-  modelPath: PropTypes.string.isRequired
-};
-
-function ModelViewer({ modelPath = '/models/ring.obj' , materialPath = '/models/ring.mtl'}) {
+export default function ModelViewer() {
   return (
-    <div className="model-viewer">
-      <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
-        {/* eslint-disable-next-line react/no-unknown-property */}
-        <ambientLight intensity={0.5} />
-        {/* eslint-disable-next-line react/no-unknown-property */}
-        <pointLight position={[10, 10, 10]} />
+    <div>
+      <Canvas style={{
+        height:'200px'
+      }}>
+        <ambientLight/>
+        <OrbitControls enableZoom={false}/>
         <Suspense fallback={null}>
-          <Model modelPath={modelPath} />
+          <Earth/>
         </Suspense>
       </Canvas>
     </div>
-  );
+  )
 }
-
-ModelViewer.propTypes = {
-  modelPath: PropTypes.string
-};
-
-export default ModelViewer;

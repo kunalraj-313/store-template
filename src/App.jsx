@@ -1,12 +1,44 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import ModelViewer from "./pages/components/ModelViewer";
-import "./App.css";
 import StorePage from "./pages/StorePage";
+import "./App.css";
+import { FaSearch, FaShoppingCart } from 'react-icons/fa';
 
-function App() {
+// Navbar Component
+const Navbar = () => {
   return (
-    <Router>
+    <div className="column items-start navbar">
+      <div className="flex">
+        <span className="">STORE</span>
+        <span className="">CONTACT</span>
+        <span className="">LOOKBOOK</span>
+     
+      </div>
+
+      <div className="flex">
+      <span className="">RETURN POLICY</span>
+      <span className="">PRE_ORDER STATUS</span>
+      </div>
+
+
+      <div className="flex ">
+      <FaSearch />  {/* Search icon */}
+      <FaShoppingCart />  {/* Cart icon */}
+      </div>
+    </div>
+  );
+};
+
+// App Component
+function App() {
+  const location = useLocation(); // Get current path
+
+  return (
+    <div>
+      {location.pathname !== "/" && <Navbar />}
+      <ModelViewer/>
+
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/store" element={<StorePage />} />
@@ -31,8 +63,18 @@ function App() {
           element={<ModelViewer modelPath="/models/ring.obj" />}
         />
       </Routes>
+    </div>
+   
+  );
+}
+
+// Wrap the App component with Router
+function AppWithRouter() {
+  return (
+    <Router>
+      <App />
     </Router>
   );
 }
 
-export default App;
+export default AppWithRouter;

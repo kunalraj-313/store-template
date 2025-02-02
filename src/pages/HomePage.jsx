@@ -27,9 +27,7 @@ function HomePage() {
   return (
     <div className="home-page">
       <div className="content">
-        <div className="logo">
-          <img src="logo.png" alt="Logo" />
-        </div>
+   
 
         <div className="timestamp">
           {formatDate(currentTime)}
