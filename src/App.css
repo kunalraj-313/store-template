@@ -8,6 +8,25 @@
 span{
   font-family: 'TropicFont';
   color: white;
+  display: inline;
+  font-style: italic !important;
+}
+
+.gap-4{
+  gap: 4px;
+}
+
+.gap-10{
+  gap:10px;
+}
+
+.gap-20{
+  gap:20px;
+}
+
+
+.tropic{
+  font-family: 'TropicFont';
 }
 
 .text-13{
@@ -22,6 +41,9 @@ span{
 }
 .text-16{
   font-size: 16px;
+}
+.text-18{
+  font-size: 18px;
 }
 .text-20{
   font-size: 20px;
@@ -43,3 +65,32 @@ body {
   font-style: italic;
 }
 
+.test{
+  border: 1px solid white;
+}
+
+.navbar{
+  margin: 0 auto;
+  width: 80%;
+}
+
+.nav-links{
+  position: relative;
+  cursor: pointer;
+}
+
+.nav-links::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px; /* Border thickness */
+  background: white; /* Border color */
+  transition: width 0.3s ease-in-out; /* Animation properties */
+}
+
+/* Hover effect */
+.nav-links:hover::after {
+  width: 100%; /* Expand to full width */
+}

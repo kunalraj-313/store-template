@@ -34,11 +34,11 @@ function HomePage() {
         </div>
 
         <nav className="navigation">
-          <Link to="/store" className="nav-link">STORE</Link>
-          <Link to="/contact" className="nav-link">CONTACT</Link>
-          <Link to="/lookbook" className="nav-link">LOOKBOOK</Link>
-          <Link to="/return-policy" className="nav-link">RETURN POLICY</Link>
-          <Link to="/pre-order-status" className="nav-link">PRE - ORDER STATUS</Link>
+          <Link to="/store" className="nav-link tropic">STORE</Link>
+          <Link to="/contact" className="nav-link tropic">CONTACT</Link>
+          <Link to="/lookbook" className="nav-link tropic">LOOKBOOK</Link>
+          <Link to="/return-policy" className="nav-link tropic">RETURN POLICY</Link>
+          <Link to="/pre-order-status" className="nav-link tropic">PRE - ORDER STATUS</Link>
         </nav>
 
         <div className="social-links">

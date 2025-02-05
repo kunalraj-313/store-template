@@ -1,5 +1,16 @@
 .product-box{
-    border: 1px solid  white;
+    /* border: 1px solid  white; */
+    width: 270px;
+    padding-bottom: 10px;
+}
+
+.product-thumbnail{
+    width: 150px;
+}
+
+.product-box:hover{
+    box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.7);
+
 }
 
 .product-title{
@@ -13,7 +24,7 @@
 .add-to-cart {
     color: white;
     text-decoration: none;
-    font-size: 24px;
+    font-size: 18px;
     font-style: italic;
     letter-spacing: 1px;
 }
