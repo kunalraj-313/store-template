@@ -256,4 +256,9 @@ body {
   .cart-search-container {
     flex: initial;
   }
+
+  .navbar {
+    flex-direction: row !important;
+    align-items: center;
+  }
 }

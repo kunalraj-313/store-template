@@ -1,0 +1,29 @@
+.navbar {
+  display: flex;
+  align-items: center;
+}
+
+.navbar__mobile-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .navbar__hamburger,
+  .navbar__model-viewer-button,
+  .navbar__cart-button,
+  .navbar__search-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+  }
+}
