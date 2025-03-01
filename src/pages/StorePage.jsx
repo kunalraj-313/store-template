@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import "./styles/StorePage.css";
 import ProductCard from "./components/ProductCard";
 
@@ -310,17 +310,27 @@ const products = [
 ];
 
 export default function StorePage() {
+  const [isExpanded, setIsExpanded] = useState(false);
+
   const categories = useMemo(
     () => Array.from(new Set(products.map((product) => product.category))),
     []
   );
 
+  const toggleDropdown = () => {
+    setIsExpanded(!isExpanded);
+  };
+
   return (
     <div className="storepage-container">
-      <div className="product-categories">
+      <div className={`product-categories ${isExpanded ? "expanded" : ""}`}>
         {categories.map((category, index) => {
           return (
-            <span className="category-text" key={index}>
+            <span
+              className="category-text"
+              key={index}
+              onClick={() => (index === 0 ? toggleDropdown() : null)}
+            >
               {category}
             </span>
           );
