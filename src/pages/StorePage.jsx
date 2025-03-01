@@ -324,18 +324,30 @@ export default function StorePage() {
   return (
     <div className="storepage-container">
       <div className="product-categories">
-        <div className="dropdown-trigger" onClick={toggleDropdown}>
-          {categories[0]}
+        {/* Desktop Layout */}
+        <div className="desktop-categories">
+          {categories.map((category, index) => (
+            <span key={index} className="category-text">
+              {category}
+            </span>
+          ))}
         </div>
-        {isExpanded && (
-          <div className="options-container">
-            {categories.slice(1).map((category, index) => (
-              <div key={index} className="dropdown-option">
-                {category}
-              </div>
-            ))}
+
+        {/* Mobile Layout */}
+        <div className="mobile-categories">
+          <div className="dropdown-trigger" onClick={toggleDropdown}>
+            {categories[0]}
           </div>
-        )}
+          {isExpanded && (
+            <div className="options-container">
+              {categories.slice(1).map((category, index) => (
+                <div key={index} className="dropdown-option">
+                  {category}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
       <div className="products-grid">
         {products.map((product, index) => {
