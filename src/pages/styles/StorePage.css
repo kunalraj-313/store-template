@@ -1,31 +1,63 @@
 .storepage-container {
-    height: 100vh;
-    display: flex;
-    gap: 50px;
-    width: 70%;
-    margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  gap: 50px;
+  width: 70%;
+  margin: 0 auto;
+  padding: 20px;
 }
- .product-categories{
-    display: flex;
-    flex-direction: column;
-    gap:'10px';
- }
 
- .category-text{
-    color: white;
-    text-decoration: none;
-    font-size: 24px;
-    font-style: italic;
-    letter-spacing: 1px;
- }
+.product-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 150px;
+}
 
+.category-text {
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+  font-style: italic;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
 
- .products-grid {
-   display: grid;
-   /* border: 1px solid white; */
-   grid-template-columns: repeat(3, 1fr); 
-  /* grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); */
-  gap: 20px; /* Space between products */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
   margin-top: 20px;
- }
+}
 
+@media (max-width: 1200px) {
+  .storepage-container {
+    width: 85%;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .storepage-container {
+    width: 90%;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .product-categories {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(1, 1fr);
+    width: 100%;
+    max-width: 400px; /* This ensures cards aren't too wide on mobile */
+    justify-items: center;
+  }
+}
