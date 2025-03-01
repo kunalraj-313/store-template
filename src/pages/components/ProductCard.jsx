@@ -1,17 +1,24 @@
 import React from "react";
 import "./styles/ProductCard.css";
+import { useAppContext } from "../../context/AppContext";
 
 export default function ProductCard(props) {
-  const { name, image, price } = props;
+  const { name, image, price, product } = props;
+  const { addToCart } = useAppContext();
+
+  const handleAddToCart = () => {
+    addToCart(product);
+  };
+
   return (
     <div className="product-box column align-center">
       <div className="column">
-        <img src={image} className="product-thumbnail" />
-        <span className="add-to-cart">ADD TO CART</span>
+        <img src={image} className="product-thumbnail" alt={name} />
+        <button className="add-to-cart" onClick={handleAddToCart}>
+          ADD TO CART
+        </button>
       </div>
-
       <span className="product-title text-18">{name}</span>
-
       <span>{price} INR</span>
     </div>
   );
