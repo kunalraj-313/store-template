@@ -329,7 +329,7 @@ export default function StorePage() {
         </div>
         {isExpanded && (
           <div className="options-container">
-            {categories.map((category, index) => (
+            {categories.slice(1).map((category, index) => (
               <div key={index} className="dropdown-option">
                 {category}
               </div>

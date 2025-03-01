@@ -70,6 +70,8 @@
     background: #000;
     border: 2px solid white;
     border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .dropdown-trigger::after {
@@ -86,7 +88,7 @@
 
   .options-container {
     position: absolute;
-    top: 100%;
+    top: calc(100% - 2px);
     left: 0;
     width: 100%;
     background: #000;
@@ -94,7 +96,6 @@
     border-top: none;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
-    margin-top: -2px;
   }
 
   .dropdown-option {
