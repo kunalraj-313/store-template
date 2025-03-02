@@ -20,7 +20,7 @@ export default function ProductCard({ product, image, name, price }) {
 
   return (
     <div className="product-box column align-center" onClick={handleClick}>
-      <div className="column">
+      <div className="column align-center">
         <img src={image} className="product-thumbnail" alt={name} />
         <button className="add-to-cart" onClick={handleAddToCart}>
           ADD TO CART
