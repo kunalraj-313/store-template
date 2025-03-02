@@ -1,4 +1,3 @@
-import React from "react";
 import "./styles/ProductCard.css";
 import { useAppContext } from "../../context/AppContext";
 

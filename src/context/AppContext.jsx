@@ -27,19 +27,30 @@ export const AppProvider = ({ children }) => {
   }, [cartItems]);
 
   const addToCart = useCallback((product) => {
-    setCartItems((prevItems) => {
-      const existingItem = prevItems.find(
-        (item) => item.product_id === product.product_id
-      );
-      if (existingItem) {
-        return prevItems.map((item) =>
-          item.product_id === product.product_id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        );
+    try {
+      console.log("Adding product to cart:", product);
+      if (!product || !product.product_id) {
+        console.error("Invalid product data:", product);
+        return;
       }
-      return [...prevItems, { ...product, quantity: 1 }];
-    });
+
+      setCartItems((prevItems) => {
+        const existingItem = prevItems.find(
+          (item) => item.product_id === product.product_id
+        );
+        if (existingItem) {
+          return prevItems.map((item) =>
+            item.product_id === product.product_id
+              ? { ...item, quantity: item.quantity + 1 }
+              : item
+          );
+        }
+        // Keep original product structure and just add quantity
+        return [...prevItems, { ...product, quantity: 1 }];
+      });
+    } catch (error) {
+      console.error("Error adding item to cart:", error);
+    }
   }, []);
 
   const removeFromCart = useCallback((productId) => {

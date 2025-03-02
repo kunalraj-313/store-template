@@ -355,6 +355,7 @@ export default function StorePage() {
             <ProductCard
               name={product.name}
               price={product.price}
+              product={product}
               key={index}
               image={product.img_url}
             />

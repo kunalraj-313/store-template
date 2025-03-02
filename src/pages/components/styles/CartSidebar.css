@@ -44,9 +44,9 @@
 
 .cart-item {
   display: flex;
-  align-items: center;
-  padding: 10px 0;
-  border-bottom: 1px solid #333;
+  gap: 15px;
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .cart-item img {
@@ -54,6 +54,13 @@
   height: 80px;
   object-fit: cover;
   margin-right: 15px;
+}
+
+.cart-item-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 4px;
 }
 
 .item-details {

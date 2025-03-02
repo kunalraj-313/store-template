@@ -77,44 +77,44 @@ function App() {
         width: "100vw",
       }}
     >
-      <AppProvider>
-        {location.pathname !== "/" && <Navbar />}
-        {location.pathname == "/" ? <ModelViewer /> : null}
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/store" element={<StorePage />} />
-          <Route
-            path="/contact"
-            element={<div className="page">Contact Page</div>}
-          />
-          <Route
-            path="/lookbook"
-            element={<div className="page">Lookbook Page</div>}
-          />
-          <Route
-            path="/return-policy"
-            element={<div className="page">Return Policy Page</div>}
-          />
-          <Route
-            path="/pre-order-status"
-            element={<div className="page">Pre-order Status Page</div>}
-          />
-          <Route
-            path="/3d-view"
-            element={<ModelViewer modelPath="/models/ring.obj" />}
-          />
-        </Routes>
-      </AppProvider>
+      {location.pathname !== "/" && <Navbar />}
+      {location.pathname == "/" ? <ModelViewer /> : null}
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/store" element={<StorePage />} />
+        <Route
+          path="/contact"
+          element={<div className="page">Contact Page</div>}
+        />
+        <Route
+          path="/lookbook"
+          element={<div className="page">Lookbook Page</div>}
+        />
+        <Route
+          path="/return-policy"
+          element={<div className="page">Return Policy Page</div>}
+        />
+        <Route
+          path="/pre-order-status"
+          element={<div className="page">Pre-order Status Page</div>}
+        />
+        <Route
+          path="/3d-view"
+          element={<ModelViewer modelPath="/models/ring.obj" />}
+        />
+      </Routes>
     </div>
   );
 }
 
-// Wrap the App component with Router
+// Wrap the App component with Router and AppProvider
 function AppWithRouter() {
   return (
-    <Router>
-      <App />
-    </Router>
+    <AppProvider>
+      <Router>
+        <App />
+      </Router>
+    </AppProvider>
   );
 }
 

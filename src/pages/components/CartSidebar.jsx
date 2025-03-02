@@ -5,7 +5,7 @@ import { FaTimes } from "react-icons/fa";
 
 export default function CartSidebar({ isOpen, onClose }) {
   const { cartItems, removeFromCart, cartTotal } = useAppContext();
-
+  console.log(cartItems);
   return (
     <div className={`cart-sidebar ${isOpen ? "open" : ""}`}>
       <div className="cart-header">
@@ -21,7 +21,11 @@ export default function CartSidebar({ isOpen, onClose }) {
         ) : (
           cartItems.map((item) => (
             <div key={item.product_id} className="cart-item">
-              <img src={item.img_url} alt={item.name} />
+              <img
+                src={item.img_url}
+                alt={item.name}
+                className="cart-item-image"
+              />
               <div className="item-details">
                 <h3>{item.name}</h3>
                 <p>₹{item.price}</p>
