@@ -1,0 +1,13 @@
+.product-box {
+  font-family: "TropicFont", serif;
+  font-style: italic;
+}
+
+.product-title,
+.add-to-cart,
+.price-text {
+  font-family: "TropicFont", serif;
+  font-style: italic;
+}
+
+/* ...existing code... */

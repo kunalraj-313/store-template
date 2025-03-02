@@ -201,3 +201,10 @@
     justify-items: center;
   }
 }
+
+.category-text,
+.dropdown-trigger,
+.dropdown-option {
+  font-family: "TropicFont", serif;
+  font-style: italic;
+}

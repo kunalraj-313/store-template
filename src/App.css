@@ -5,6 +5,12 @@
   font-style: italic;
 }
 
+/* Apply TropicFont globally */
+* {
+  font-family: "TropicFont", serif;
+  font-style: italic;
+}
+
 span {
   font-family: "TropicFont";
   color: white;
