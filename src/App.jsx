@@ -7,6 +7,7 @@ import {
 import HomePage from "./pages/HomePage";
 import ModelViewer from "./pages/components/ModelViewer";
 import StorePage from "./pages/StorePage";
+import ProductPage from "./pages/ProductPage";
 import "./App.css";
 import { FaSearch, FaShoppingCart, FaBars, FaTimes } from "react-icons/fa";
 import { AppProvider, useAppContext } from "./context/AppContext";
@@ -82,6 +83,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/store" element={<StorePage />} />
+        <Route path="/product/:id" element={<ProductPage />} />
         <Route
           path="/contact"
           element={<div className="page">Contact Page</div>}
