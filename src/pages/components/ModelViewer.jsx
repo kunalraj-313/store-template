@@ -8,6 +8,7 @@ export default function ModelViewer(props) {
   return (
     <div>
       <Canvas
+        className="model-canvas"
         style={{
           height: type == "navbar" ? "150px" : "300px",
         }}
