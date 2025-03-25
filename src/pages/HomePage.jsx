@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './styles/HomePage.css';
+import './styles/Carousel.css'; // Add a new CSS file for carousel styles
 
 function HomePage() {
   const [currentTime, setCurrentTime] = useState(new Date());
+  const [currentCard, setCurrentCard] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -24,22 +26,80 @@ function HomePage() {
     return `${month}/${day}/${year} ${hours}:${minutes} ${ampm}`;
   };
 
+  const carouselItems = [
+    { 
+      to: "/madras", 
+      text: "MADRAS", 
+      subtext: "Classic madras patterns", 
+      img: "https://images.unsplash.com/photo-1585914924626-15adac1e6402?w=800&auto=format&fit=crop"
+    },
+    { 
+      to: "/y2k", 
+      text: "Y2K", 
+      subtext: "Retro futuristic vibes", 
+      img: "https://images.unsplash.com/photo-1566204773863-cf63e6d4ab88?w=800&auto=format&fit=crop"
+    },
+    { 
+      to: "/minimals", 
+      text: "MINIMALS", 
+      subtext: "Less is more", 
+      img: "https://images.unsplash.com/photo-1543087903-1ac2ec7aa8c5?w=800&auto=format&fit=crop"
+    },
+    { 
+      to: "/old-money", 
+      text: "OLD MONEY", 
+      subtext: "Timeless elegance", 
+      img: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&auto=format&fit=crop"
+    },
+    { 
+      to: "/black", 
+      text: "BLACK", 
+      subtext: "Essential noir collection", 
+      img: "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=800&auto=format&fit=crop"
+    },
+  ];
+
+  const handleNext = () => {
+    setCurrentCard((prev) => (prev + 1) % carouselItems.length);
+  };
+
+  const handlePrev = () => {
+    setCurrentCard((prev) => (prev - 1 + carouselItems.length) % carouselItems.length);
+  };
+
   return (
     <div className="home-page">
       <div className="content">
-   
-
         <div className="timestamp">
           {formatDate(currentTime)}
         </div>
 
-        <nav className="navigation">
-          <Link to="/store" className="nav-link tropic">STORE</Link>
-          <Link to="/contact" className="nav-link tropic">CONTACT</Link>
-          <Link to="/lookbook" className="nav-link tropic">LOOKBOOK</Link>
-          <Link to="/return-policy" className="nav-link tropic">RETURN POLICY</Link>
-          <Link to="/pre-order-status" className="nav-link tropic">PRE - ORDER STATUS</Link>
-        </nav>
+        <div className="carousel">
+          <button className="carousel-button left" onClick={handlePrev}>‹</button>
+          <div className="carousel-card-container">
+            {carouselItems.map((item, index) => (
+              <Link
+                to={item.to}
+                className={`carousel-card ${index === currentCard ? "active" : ""}`}
+                key={index}
+                style={{ 
+                  transform: window.innerWidth > 768 
+                    ? `translateX(${(index - currentCard) * 100}%)` 
+                    : 'none' 
+                }}
+              >
+                <div className="card-content">
+                  <img src={item.img} alt={item.text} className="card-image" />
+                  <div className="card-info">
+                    <div className="card-title">{item.text}</div>
+                    <div className="card-subtext">{item.subtext}</div>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+          <button className="carousel-button right" onClick={handleNext}>›</button>
+        </div>
 
         <div className="social-links">
           <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-link">
