@@ -32,6 +32,10 @@ const Navbar = () => {
 
         <div
           className={`nav-links-container ${isMobileMenuOpen ? "active" : ""}`}
+          style={{
+            opacity: isMobileMenuOpen ? 1 : 0,
+            pointerEvents: isMobileMenuOpen ? "auto" : "none",
+          }}
         >
           <div className="column gap-20">
             <div className="flex gap-20">
