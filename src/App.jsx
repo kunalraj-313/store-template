@@ -13,6 +13,7 @@ import { FaSearch, FaShoppingCart, FaBars, FaTimes } from "react-icons/fa";
 import { AppProvider, useAppContext } from "./context/AppContext";
 import { useState } from "react";
 import CartSidebar from "./pages/components/CartSidebar";
+import AdminPage from "./pages/AdminPage";
 
 // Navbar Component
 const Navbar = () => {
@@ -108,6 +109,7 @@ function App() {
           path="/3d-view"
           element={<ModelViewer modelPath="/models/ring.obj" />}
         />
+        <Route path="/admin" element={<AdminPage />} />
       </Routes>
     </div>
   );
